@@ -40,7 +40,7 @@ ld g(int i, int j){ // NOTE: i, j будут использованы в буд�
 }
 
 void logfile(std::vector<std::vector<node>> p){
-    std::ofstream f("log.txt");
+    std::ofstream f("tree_log.txt");
     for (int i = 0; i < p.size(); i++){
         for (int j = 0; j < pow(2, i); j++)
             f << p[i][j].abs << ' ';

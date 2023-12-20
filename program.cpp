@@ -10,7 +10,7 @@ int randint(int a, int b){
 
 int main(){
     ofstream f("test.txt");
-    Generator G(5, 0.3, 0.7);
+    Generator G(5, 0.9, 0.1);
     G.seed(61);
     for(int i = 0; i < 50000; i++){
         f << G.next();

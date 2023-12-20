@@ -46,6 +46,7 @@ Generator::Generator(int size, double p0, double p1){
     for (int i = 0; i < size; i++)
         this->bits.push_back(false);
     this->p = getdistribution(size + 1, p0, p1);
+    logfile(p);
 }
 
 void Generator::print_bits(){
