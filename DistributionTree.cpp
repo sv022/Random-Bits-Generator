@@ -6,7 +6,7 @@
 
 #define ld long double
 
-struct node{
+struct node {
     std::string value;
     ld abs;
     ld trans;
@@ -36,11 +36,13 @@ std::string bin(int n, int length){
 
 ld g(int i, int j){ // NOTE: i, j будут использованы в будущем
     ld r = ((ld)(1 + (rand() % (9 - 1))) / 10);
+    r = 0.5;
     return r;
 }
 
 void logfile(std::vector<std::vector<node>> p){
     std::ofstream f("tree_log.txt");
+    f << p.size() << '\n';
     for (int i = 0; i < p.size(); i++){
         for (int j = 0; j < pow(2, i); j++)
             f << p[i][j].abs << ' ';

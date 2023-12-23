@@ -22,5 +22,5 @@ class Generator {
     void print_bits();
     int next();
 
-    Generator(int, double, double);
+    Generator(int, double, double, bool);
 };
