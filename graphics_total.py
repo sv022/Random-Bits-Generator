@@ -23,8 +23,10 @@ f.close()
 # подсчет ожидаемых значений
 f = open('output/tree_log.txt')
 size = int(f.readline())
-for _ in range(size - 2):
-    f.readline()
+p0, p1 = 0, 0
+for i in range(size - 2):
+    temp = f.readline()
+    if i == 1: p0, p1 = map(float, temp.split())
 layer = list(map(float, f.readline().split()))
 values_expected = dict(zip(list(lpad(bin(i)[2::], int(log2(len(layer)))) for i in range(len(layer))), layer))
 f.close()
@@ -46,6 +48,7 @@ print((k_pos + k_neg) / k_pos - 1)
 
 
 fig = go.Figure()
+fig.update_layout(title=f'p(0) = {p0}, p(1) = {p1}')
 fig.update_xaxes(title="Вектор")
 fig.update_yaxes(title="Абсолютная вероятность")
 
