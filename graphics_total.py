@@ -42,9 +42,10 @@ for expected, actual in zip(values_expected.items(), values_total.items()):
         d_neg += (actual[1] - expected[1])
         k_neg += 1
 
-print(d_pos, d_neg)
-print((d_pos / k_pos) / (d_neg / k_neg))
-print((k_pos + k_neg) / k_pos - 1)
+print('Отклонения')
+print(f"Положительные: {d_pos} Отрицательные: {d_neg}")
+print(f'Полученное значение C/D: {(d_pos / k_pos) / (d_neg / k_neg)}')
+print(f'Ожидаемое значение C/D: {(k_pos + k_neg) / k_pos - 1}')
 
 
 fig = go.Figure()
