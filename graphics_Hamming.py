@@ -36,9 +36,7 @@ f.close()
 
 fig = go.Figure()
 
-
 fig.add_trace(go.Scatter(x=list(values_Hamming.keys()), y=list(values_Hamming.values())))
 fig.add_trace(go.Scatter(x=list(values_expected.keys()), y=list(values_expected.values())))
-
 
 fig.show()
