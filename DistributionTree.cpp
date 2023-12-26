@@ -1,4 +1,5 @@
 #pragma once
+#include<iostream>
 #include<string>
 #include<vector>
 #include<cmath>
@@ -23,6 +24,25 @@ struct node {
     }
 };
 
+std::vector<std::vector<ld>> glist;
+void read_g(int n){
+    std::ifstream f("g.txt");
+    ld r;
+    f >> r;
+    glist.push_back(std::vector<ld>{r});
+    f >> r;
+    glist.push_back(std::vector<ld>{r});
+    for (int i = 0; i < n + 2; i++){
+        std::vector<ld> layer{};
+        for (int j = 0; j < pow(2, i); j++){
+            f >> r;
+            layer.push_back(r);
+        }
+        glist.push_back(layer);
+    }
+    f.close();
+}
+
 
 std::string bin(int n, int length){
     std::string r;
@@ -35,9 +55,11 @@ std::string bin(int n, int length){
 }
 
 ld g(int i, int j){ // NOTE: i, j будут использованы в будущем
-    ld r = ((ld)(1 + (rand() % (9 - 1))) / 10);
-    r = 0.5;
-    return r;
+    return glist[i][j];
+    // ld r;
+    // ld r = ((ld)(1 + (rand() % (9 - 1))) / 10);
+    // r = 0.5;
+    // return r;
 }
 
 void logfile(std::vector<std::vector<node>> p){
@@ -55,6 +77,7 @@ std::vector<std::vector<node>> getdistribution(int n, ld a, ld b){
     std::vector<std::vector<node>> p;
     p.push_back(std::vector<node>{node("", 1, 1)});
     p.push_back(std::vector<node>{node("0", a, a), node("1", b, b)});
+    read_g(n + 2);
     if (n == 1) return p;
     for (int i = 2; i < n + 1; i++){
         std::vector<node> layer;
