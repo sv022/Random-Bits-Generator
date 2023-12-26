@@ -2,6 +2,10 @@ import plotly.graph_objects as go
 from math import log2
 import numpy as np
 
+"""
+FILE IS OBSOLETE
+ALL FUNCTIONALITY IN GRAPHICS.PY
+"""
 
 def lpad(s : str, l : int):
     while len(s) < l:
@@ -53,9 +57,8 @@ fig.update_layout(title=f'p(0) = {p0}, p(1) = {p1}')
 fig.update_xaxes(title="Вектор")
 fig.update_yaxes(title="Абсолютная вероятность")
 
-fig.add_trace(go.Scatter(x=list(values_expected.keys()), y=list(values_expected.values()), name='Ожидаемые значения', mode='markers'))
-fig.add_trace(go.Scatter(x=list(values_total.keys()), y=list(values_total.values()), name='Полученные значения', mode='markers'))
-
+fig.add_trace(go.Scatter(x=list(values_expected.keys()), y=list(values_expected.values()), name='Ожидаемые значения', mode='lines+markers'))
+fig.add_trace(go.Scatter(x=list(values_total.keys()), y=list(values_total.values()), name='Полученные значения', mode='lines+markers'))
 
 fig.show()
 
