@@ -54,7 +54,7 @@ std::string bin(int n, int length){
     return r;
 }
 
-ld g(int i, int j){ // NOTE: i, j будут использованы в будущем
+ld g(int i, int j){
     return glist[i][j];
     // ld r;
     // ld r = ((ld)(1 + (rand() % (9 - 1))) / 10);

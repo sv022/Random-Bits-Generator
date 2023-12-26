@@ -71,5 +71,5 @@ def plot_Hamming():
     fig_Hamming.show()
 
 
-# plot_abs()
+plot_abs()
 plot_Hamming()
