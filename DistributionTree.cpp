@@ -77,7 +77,7 @@ std::vector<std::vector<node>> getdistribution(int n, ld a, ld b){
     std::vector<std::vector<node>> p;
     p.push_back(std::vector<node>{node("", 1, 1)});
     p.push_back(std::vector<node>{node("0", a, a), node("1", b, b)});
-    read_g(n + 2);
+    read_g(n + 1);
     if (n == 1) return p;
     for (int i = 2; i < n + 1; i++){
         std::vector<node> layer;
