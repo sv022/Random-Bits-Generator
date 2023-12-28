@@ -46,7 +46,6 @@ def plot_Hamming():
     d_pos, k_pos = d[0]
     d_neg, k_neg = d[1]
     dev_list = devation_list(values_Hamming, values_expected)
-    file_length.close()
     
     fig_Hamming = make_subplots(rows=2, cols=1)     
     fig_Hamming.update_layout(title=f'p(0) = {p0}, p(1) = {p1}')
