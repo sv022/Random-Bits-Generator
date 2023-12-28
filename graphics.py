@@ -1,7 +1,6 @@
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from math import log2
-import numpy as np
 from utilities import *
 from tkinter import *
 from tkinter import ttk
