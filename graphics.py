@@ -3,7 +3,8 @@ from plotly.subplots import make_subplots
 from math import log2
 import numpy as np
 from utilities import *
-
+from tkinter import *
+from tkinter import ttk
 
 irises_colors = ['rgb(33, 75, 99)', 'rgb(79, 129, 102)', 'rgb(151, 179, 100)',
                  'rgb(175, 49, 35)', 'rgb(36, 73, 147)']
@@ -62,8 +63,10 @@ def plot_Hamming():
     fig_Hamming.show()
 
 
-def plot_packets(size : int, extend_to : int):
+def plot_packets():
     f = open('output/packets.txt')
+    size = int(f.readline())
+    extend_to = int(f.readline())
     packets = [line.strip() for line in f]
     packets_normal = len([x for x in packets if len(x) == extend_to])
     packets_extended = len([x for x in packets if len(x) == size])
@@ -77,6 +80,15 @@ def plot_packets(size : int, extend_to : int):
     fig_packets.show()
 
 
+root = Tk()
+frm = ttk.Frame(root, padding=10)
+frm.grid(sticky='w')
+ttk.Label(frm, text="Выберите опцию").grid(column=0, row=0)
+ttk.Button(frm, text="График абсолютных вероятностей", command=plot_abs).grid(column=0, row=1)
+ttk.Button(frm, text="График расстояний Хемминга", command=plot_Hamming).grid(column=0, row=2)
+ttk.Button(frm, text="Визуализация пакетов", command=plot_packets).grid(column=0, row=3)
+ttk.Button(frm, text="Quit", command=root.destroy).grid(column=0, row=4)
+root.mainloop()
 # plot_abs()
 # plot_Hamming()
-plot_packets(8, 16)
+# plot_packets(8, 16)
