@@ -1,7 +1,6 @@
 #include<iostream>
 #include<cmath>
 #include<fstream>
-#include<locale.h>
 #include"Generator.cpp"
 #include"statistics.cpp"
 
