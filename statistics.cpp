@@ -39,6 +39,11 @@ namespace statistics {
         else return;
 
         getline(g, data);
+        
+        int count0 = count(data, "0");
+        int count1 = count(data, "1");
+        f << count0 << ' ' << count1 << '\n';
+
         for (int i = 0; i < pow(2, n); i++){
             std::string s = bin(i, n);
             int k = count(data, s);
@@ -60,6 +65,10 @@ namespace statistics {
         n = stoi(temp_n) - 2;
 
         getline(g, data);
+
+        int count0 = count(data, "0");
+        int count1 = count(data, "1");
+        f << count0 << ' ' << count1 << '\n';
 
         std::vector<int> c;
         for (int i = 0; i <= n; i++) c.push_back(0);

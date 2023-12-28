@@ -31,9 +31,9 @@ void extend_package(vector<bool> &package, int size){
 
 
 int main(){
-    int package_count = 100;
-    int package_size = 8;
-    int extend_to = 16;
+    int package_count;
+    int package_size;
+    int extend_to;
     ofstream f("packets.txt");
     ifstream g("output.txt");
 

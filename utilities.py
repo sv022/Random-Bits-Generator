@@ -16,7 +16,8 @@ def get_values(filename : str, metrics: str, size: int):
     if not isinstance(size, int): raise Exception(f'Wrong file size: {size}')
     n = size
     with open(filename) as f:
-        values = f.read().split()
+        count0, count1 = map(int, f.readline().split())
+        values = f.readline().split()
     if metrics == "hamming":
         values = {x[0] : int(x[1]) / n for x in enumerate(values)}
     elif metrics == "abs":
@@ -24,7 +25,7 @@ def get_values(filename : str, metrics: str, size: int):
         values = dict(zip(list(lpad(bin(i)[2::], int(log2(len(values)))) for i in range(len(values))), values))
     else:
         raise Exception(f"Wrong metrics type: {metrics}")
-    return values
+    return (values, count0, count1)
 
 
 def get_expected_values(metrics: str):

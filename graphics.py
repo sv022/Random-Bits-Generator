@@ -13,16 +13,15 @@ sunflowers_colors = ['rgb(177, 127, 38)', 'rgb(205, 152, 36)', 'rgb(99, 79, 37)'
 
 def plot_abs():
     n = file_length('output/output.txt')
-    values_abs = get_values('output/vectors_total.txt', "abs", n)
+    values_abs, count0, count1 = get_values('output/vectors_total.txt', "abs", n)
     values_expected, p0, p1 = get_expected_values('abs')
     d = devation(values_abs, values_expected)
     d_pos, k_pos = d[0]
     d_neg, k_neg = d[1]
     dev_list = devation_list(values_abs, values_expected)
-    file_length.close()
 
     fig_abs = make_subplots(rows=2, cols=1)
-    fig_abs.update_layout(title=f'p(0) = {p0}, p(1) = {p1}')
+    fig_abs.update_layout(title=f'p(0) = {p0}, p(1) = {p1}\nk(0) = {count0 / n}, k(1) = {count1 / n}')
     fig_abs.update_xaxes(title="Вектор", row=1, col=1)
     fig_abs.update_yaxes(title="Абсолютная вероятность", row=1, col=1)
     
@@ -40,7 +39,7 @@ def plot_abs():
 
 def plot_Hamming():
     n = file_length('output/output.txt')
-    values_Hamming = get_values('output/vectors_Hamming.txt', "hamming", n)
+    values_Hamming, count0, count1 = get_values('output/vectors_Hamming.txt', "hamming", n)
     values_expected, p0, p1 = get_expected_values("hamming")    
     d = devation(values_Hamming, values_expected)
     d_pos, k_pos = d[0]
@@ -48,7 +47,7 @@ def plot_Hamming():
     dev_list = devation_list(values_Hamming, values_expected)
     
     fig_Hamming = make_subplots(rows=2, cols=1)     
-    fig_Hamming.update_layout(title=f'p(0) = {p0}, p(1) = {p1}')
+    fig_Hamming.update_layout(title=f'p(0) = {p0}, p(1) = {p1}, k(0) = {count0 / n}, k(1) = {count1 / n}')
     fig_Hamming.update_xaxes(title="Расстояние Хемминга", row=1, col=1)
     fig_Hamming.update_yaxes(title="Абсолютная вероятность", row=1, col=1)
     

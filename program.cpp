@@ -11,11 +11,11 @@ int randint(int a, int b){
 }
 
 int main(){
-    ld p0 = 0.4;
+    ld p0 = 0.3;
     ld p1 = 1 - p0;
     int seed = 61;
     int n = 5;
-    int size = 100000;
+    int size = 10000;
     bool user_input = false;
     if (user_input){
         cout << "p(0):\n";
