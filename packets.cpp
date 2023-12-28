@@ -37,7 +37,7 @@ int main(){
     ofstream f("packets.txt");
     ifstream g("output.txt");
 
-    bool user_input = false;
+    bool user_input = true;
 
     if (user_input){
         cout << "default package size:\n";
