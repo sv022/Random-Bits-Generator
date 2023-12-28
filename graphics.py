@@ -19,6 +19,7 @@ def plot_abs():
     d_pos, k_pos = d[0]
     d_neg, k_neg = d[1]
     dev_list = devation_list(values_abs, values_expected)
+    file_length.close()
 
     fig_abs = make_subplots(rows=2, cols=1)
     fig_abs.update_layout(title=f'p(0) = {p0}, p(1) = {p1}')
@@ -45,6 +46,7 @@ def plot_Hamming():
     d_pos, k_pos = d[0]
     d_neg, k_neg = d[1]
     dev_list = devation_list(values_Hamming, values_expected)
+    file_length.close()
     
     fig_Hamming = make_subplots(rows=2, cols=1)     
     fig_Hamming.update_layout(title=f'p(0) = {p0}, p(1) = {p1}')
@@ -69,6 +71,7 @@ def plot_packets():
     packets = [line.strip() for line in f]
     packets_normal = len([x for x in packets if len(x) == extend_to])
     packets_extended = len([x for x in packets if len(x) == size])
+    f.close()
     
     fig_packets = make_subplots(rows=2, cols=1, specs=[[{'type':'xy'}], [{'type':'domain'}]])    
     fig_packets.update_xaxes(title="Номер пакета", row=1, col=1)
