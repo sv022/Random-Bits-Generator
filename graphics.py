@@ -78,6 +78,7 @@ def plot_packets():
     fig_packets.add_trace(go.Pie(values=[packets_normal, packets_extended], labels=[f'Размер {size}', f'Размер {extend_to}'], marker_colors=irises_colors), 2, 1)
     fig_packets.update_layout(title=f"Размер пакета: {size}, после расширения: {extend_to}")
     fig_packets.show()
+    f.close()
 
 
 root = Tk()
