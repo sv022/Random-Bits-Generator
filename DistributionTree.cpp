@@ -51,7 +51,7 @@ std::string bin(int n, int length){
         r = (n % 2 == 0 ? "0" : "1") + r;
         n /= 2;
     }
-    while (r.size() < length) r = "0" + r;
+    while ((int)r.size() < length) r = "0" + r;
     return r;
 }
 
@@ -66,7 +66,7 @@ ld g(int i, int j){
 void logfile(std::vector<std::vector<node>> p){
     std::ofstream f("tree_log.txt");
     f << p.size() << '\n';
-    for (int i = 0; i < p.size(); i++){
+    for (int i = 0; i < (int)p.size(); i++){
         for (int j = 0; j < pow(2, i); j++)
             f << p[i][j].abs << ' ';
         f << '\n';
