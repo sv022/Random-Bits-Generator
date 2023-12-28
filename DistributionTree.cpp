@@ -3,6 +3,7 @@
 #include<string>
 #include<vector>
 #include<cmath>
+#include<ctime>
 #include<fstream>
 
 #define ld long double
@@ -55,11 +56,11 @@ std::string bin(int n, int length){
 }
 
 ld g(int i, int j){
-    return glist[i][j];
-    // ld r;
-    // ld r = ((ld)(1 + (rand() % (9 - 1))) / 10);
-    // r = 0.5;
-    // return r;
+    //return glist[i][j];
+    srand(time(0));
+    ld r;
+    r = ((ld)(1 + (rand() % (9 - 1))) / 10);
+    return r;
 }
 
 void logfile(std::vector<std::vector<node>> p){
