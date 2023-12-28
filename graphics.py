@@ -70,7 +70,7 @@ def plot_packets():
     packets = [line.strip() for line in f]
     packets_normal = len([x for x in packets if len(x) == extend_to])
     packets_extended = len([x for x in packets if len(x) == size])
-    f.close()
+    
     fig_packets = make_subplots(rows=2, cols=1, specs=[[{'type':'xy'}], [{'type':'domain'}]])    
     fig_packets.update_xaxes(title="Номер пакета", row=1, col=1)
     fig_packets.update_yaxes(title="Размер пакета", row=1, col=1)
@@ -78,7 +78,6 @@ def plot_packets():
     fig_packets.add_trace(go.Pie(values=[packets_normal, packets_extended], labels=[f'Размер {size}', f'Размер {extend_to}'], marker_colors=irises_colors), 2, 1)
     fig_packets.update_layout(title=f"Размер пакета: {size}, после расширения: {extend_to}")
     fig_packets.show()
-    
 
 
 root = Tk()
