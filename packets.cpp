@@ -31,19 +31,13 @@ void extend_package(vector<bool> &package, int size){
 
 
 int main(){
-    ld p0 = 0.4;
-    ld p1 = 1 - p0;
-    int seed = 61; // начальное заполнение
-    int n = 5; // глубина
-    Generator G(n, p0, p1);
-    G.seed(seed);
-
     int package_count = 100;
     int package_size = 8;
     int extend_to = 16;
     ofstream f("packets.txt");
+    ifstream g("output.txt");
 
-    bool user_input = true;
+    bool user_input = false;
 
     if (user_input){
         cout << "default package size:\n";
@@ -53,12 +47,14 @@ int main(){
         cout << "number of packages:\n";
         cin >> package_count;
     };
+
     f << package_size << '\n';
     f << extend_to << '\n';
+    string bits;
+    getline(g, bits);
     for (int i = 0; i < package_count; i++){
         vector<bool> package = get_package(package_size);
-        bool bit = G.next();
-        if (bit)
+        if (bits[i] == '1')
             extend_package(package, extend_to);
         for (int i = 0; i < (int)package.size(); i++)
             f << (int)package[i];
