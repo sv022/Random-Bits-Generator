@@ -3,6 +3,7 @@
 #include<string>
 #include<vector>
 #include<cmath>
+#include<ctime>
 #include<fstream>
 
 #define ld long double
@@ -50,22 +51,22 @@ std::string bin(int n, int length){
         r = (n % 2 == 0 ? "0" : "1") + r;
         n /= 2;
     }
-    while (r.size() < length) r = "0" + r;
+    while ((int)r.size() < length) r = "0" + r;
     return r;
 }
 
 ld g(int i, int j){
-    return glist[i][j];
-    // ld r;
-    // ld r = ((ld)(1 + (rand() % (9 - 1))) / 10);
-    // r = 0.5;
-    // return r;
+    //return glist[i][j];
+    srand(time(0));
+    ld r;
+    r = ((ld)(1 + (rand() % (9 - 1))) / 10);
+    return r;
 }
 
 void logfile(std::vector<std::vector<node>> p){
     std::ofstream f("tree_log.txt");
     f << p.size() << '\n';
-    for (int i = 0; i < p.size(); i++){
+    for (int i = 0; i < (int)p.size(); i++){
         for (int j = 0; j < pow(2, i); j++)
             f << p[i][j].abs << ' ';
         f << '\n';
@@ -77,7 +78,7 @@ std::vector<std::vector<node>> getdistribution(int n, ld a, ld b){
     std::vector<std::vector<node>> p;
     p.push_back(std::vector<node>{node("", 1, 1)});
     p.push_back(std::vector<node>{node("0", a, a), node("1", b, b)});
-    read_g(n + 2);
+    read_g(n + 1);
     if (n == 1) return p;
     for (int i = 2; i < n + 1; i++){
         std::vector<node> layer;
